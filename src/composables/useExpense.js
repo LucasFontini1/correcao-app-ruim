@@ -14,6 +14,7 @@ export function useExpense() {
 
   const filtered = computed(() => {
     if (filter.value === 'all') {
+      console.log(expenses.value)
       return expenses.value
     }
     return expenses.value.filter((item) => item.category === filter.value)
@@ -54,7 +55,7 @@ export function useExpense() {
     value,
     category,
     filter,
-    filtered,
+    filtered: [...filtered.value],
     total,
     addExpense,
     removeExpense,

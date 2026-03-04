@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -5,12 +7,13 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f4f4f4;
+  background: #f0f4ef;
+  padding: 0;
 }
 
-.app {
+.page {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 106px 20px;
 }
 
