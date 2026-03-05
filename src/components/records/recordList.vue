@@ -3,22 +3,34 @@
     import appButton from '../forms/appButton.vue';
 
     const expense = useExpense()
+    const { filtered } = useExpense()
+
+    const categories = {
+        food: 'Comida',
+        transport: 'Transporte',
+        other: 'Outros',
+        all: 'Todos'
+    }
 </script>
 <template>
     <div class="list">
         <h2>
-            Lista do dia
+            Lista de Gastos
         </h2>
+        <h3 class="category">
+            {{ categories[expense.filter.value] }}
+        </h3>
         <ul>
-            <li v-for="item in expense.filtered" :key="item.id">
+            <li v-for="item in filtered" :key="item.id">
                 <div class="string">
                     <div>
                         <h3>{{ item.title }}</h3>
-                        <p class="category">{{ item.category }}</p>
+                        <p class="category">{{ categories[item.category] }}</p>
+
                     </div>
                     <div class="size">
-                        <p>{{ item.value }}</p>
-                        <appButton variant="danger">X</appButton>
+                        <p>R${{ item.value }}</p>
+                        <appButton variant="danger" @click="expense.removeExpense(item.id)">X</appButton>
                     </div>
                 </div>
 
@@ -31,9 +43,19 @@
         margin-top: 40px;
         border: #0D1821 solid 1px;
         border-radius: 10px;
+        padding: 20px;        
     }
     h2{
         text-align: center;
+        padding: 0;
+        margin: 0 05px 0;
+    }
+    h3.category{
+        text-align: center;
+        padding: 0;
+        margin: 0 0 20px 0;
+        color: gray;
+        font-size: 15px ;
     }
     ul li{
         background-color: #344396;
@@ -43,6 +65,7 @@
         height: 80px;
         margin: 0 auto;
         border-radius: 10px;
+        padding: 10px 15px;
     }
     ul{
         padding: 0;
@@ -55,6 +78,8 @@
     div.string{
         display: flex;
         justify-content: space-between;
+        height: 100%;
+        align-items: center;
     }
     div.string div{
         margin: 0;
@@ -62,8 +87,15 @@
     }
     h3{
         font-size: 20px;
+        margin: 0;
     }
     p.category{
         font-size: 10px;
+        margin: 0;
     }
+    .size{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 </style>

@@ -1,22 +1,26 @@
 <script setup>
-    import { useRouter } from 'vue-router';
+    import { useExpense } from '@/composables/useExpense';
+    // import { useRouter } from 'vue-router';
     import appHeader from '@/components/layouts/appHeader.vue';
     import appButton from '@/components/forms/appButton.vue';
     import recordList from '@/components/records/recordList.vue';
+    import appFooter from '@/components/layouts/appFooter.vue';
 
-    const router = useRouter()
+    // const router = useRouter()
+    const expense = useExpense()
 </script>
 <template>
-    <appHeader showBack @back="router.back()"></appHeader>
+    <appHeader></appHeader>
     <div class="page">
         <div class="buttons">
-            <appButton>Tudo</appButton>
-            <appButton>Comida</appButton>
-            <appButton>Transporte</appButton>
-            <appButton>Outros</appButton>
+            <appButton @click="expense.filter.value = 'all'">Tudo</appButton>
+            <appButton @click="expense.filter.value = 'food'">Comida</appButton>
+            <appButton @click="expense.filter.value = 'transport'">Transporte</appButton>
+            <appButton @click="expense.filter.value = 'other'">Outros</appButton>
         </div>
         <recordList></recordList>
     </div>
+    <appFooter></appFooter>
 </template>
 <style scoped>
     .buttons{

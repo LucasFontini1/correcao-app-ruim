@@ -5,12 +5,14 @@ const expenses = ref([
   { id: 2, title: 'Onibus', value: 4.5, category: 'transport' },
   { id: 3, title: 'Lanche', value: 12, category: 'food' },
 ])
+const filter = ref('all')
 
 export function useExpense() {
   const title = ref('')
   const value = ref('')
   const category = ref('')
-  const filter = ref('all')
+  
+  console.log(filter.value)
 
   const filtered = computed(() => {
     if (filter.value === 'all') {
@@ -55,7 +57,7 @@ export function useExpense() {
     value,
     category,
     filter,
-    filtered: [...filtered.value],
+    filtered,
     total,
     addExpense,
     removeExpense,
