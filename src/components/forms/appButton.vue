@@ -39,7 +39,7 @@ button.app-btn{
     transform: scale(0.95);
 }
 .app-btn.danger{
-    background-color: red;
+    background-color: #c1121f;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,10 +49,10 @@ button.app-btn{
     background-color: rgb(200,0,0);
 }
 .app-btn.add{
-    background-color: green;
+    background-color: #344396;
 }
 
 .app-btn.add:active{
-    background-color: rgb(0,180,0);
+    background-color: #435099;
 }
 </style>

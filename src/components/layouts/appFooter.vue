@@ -1,13 +1,15 @@
 <script setup>
     import appButton from '../forms/appButton.vue';
     import { useExpense } from '@/composables/useExpense';
+    import { useRouter } from 'vue-router';
 
+    const router = useRouter()
     const expense = useExpense()
 </script>
 <template>
     <footer>
-        <appButton variant="add">Adicionar</appButton>
-        <appButton variant="danger" @click="expense.clearAll()">Limpar</appButton>
+        <appButton variant="add" @click="router.push('/new-item')">Adicionar</appButton>
+        <appButton variant="danger" @click="expense.clearAll()" v-if="expense.filtered !== 0">Limpar</appButton>
     </footer>
 </template>
 <style scoped>

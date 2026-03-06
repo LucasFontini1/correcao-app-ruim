@@ -11,6 +11,11 @@
         other: 'Outros',
         all: 'Todos'
     }
+    const icons = {
+        food: 'mdi mdi-hamburger',
+        transport: 'mdi mdi-bus',
+        other: 'mdi mdi-dots-horizontal',
+    }
 </script>
 <template>
     <div class="list">
@@ -25,7 +30,7 @@
                 <div class="string">
                     <div>
                         <h3>{{ item.title }}</h3>
-                        <p class="category">{{ categories[item.category] }}</p>
+                        <p class="category">{{ categories[item.category] }} <span :class="icons[item.category]"></span></p>
 
                     </div>
                     <div class="size">
@@ -41,7 +46,7 @@
 <style scoped>
     .list{
         margin-top: 40px;
-        border: #0D1821 solid 1px;
+        border: #344396 solid 1px;
         border-radius: 10px;
         padding: 20px;        
     }
