@@ -47,6 +47,8 @@
         height: 44px;
         color: #0D1821;
         border-radius: 20px;
+        position: absolute;
+        left: 20px;
     }
     .bot-vol:active{
         background-color: #94baeb;

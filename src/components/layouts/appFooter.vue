@@ -5,11 +5,27 @@
 
     const router = useRouter()
     const expense = useExpense()
+
+    const props = defineProps({
+        title: {
+            type: String,
+            default: 'Limpar',
+        }
+    })
+
+    function handleClick() {
+  if (props.title === 'Limpar') {
+    expense.clearAll()
+  } else if (props.title === 'Cancelar') {
+    router.back()
+  }
+}
 </script>
 <template>
     <footer>
         <appButton variant="add" @click="router.push('/new-item')">Adicionar</appButton>
-        <appButton variant="danger" @click="expense.clearAll()" v-if="expense.filtered !== 0">Limpar</appButton>
+        <appButton variant="danger" @click="handleClick()" v-if="expense.filtered !== 0">{{ title }}</appButton>
+        
     </footer>
 </template>
 <style scoped>

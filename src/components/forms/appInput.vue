@@ -35,3 +35,22 @@
     />
   </div>
 </template>
+<style scoped>
+  div.app-input{
+    display: flex;
+    flex-direction: column;
+  }
+  label{
+    font-size: 20px;
+    font-family: 'comfortaa';
+    margin-bottom:10px ;
+  }
+  input{
+    width: 100%;
+    font-size:20px;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+  }
+
+</style>

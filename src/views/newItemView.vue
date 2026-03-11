@@ -14,5 +14,5 @@ import AppFooter from '@/components/layouts/appFooter.vue';
         <recordNew>
         </recordNew>
     </div>
-    <AppFooter></AppFooter>
+    <AppFooter title="Cancelar"></AppFooter>
 </template>
