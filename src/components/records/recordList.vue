@@ -3,7 +3,7 @@
     import appButton from '../forms/appButton.vue';
 
     const expense = useExpense()
-    const { filtered } = useExpense()
+    const { filtered } = expense
 
     const categories = {
         food: 'Comida',
@@ -22,6 +22,7 @@
         <h2>
             Lista de Gastos
         </h2>
+        <h3 class="category">Total: {{ expense.total }}</h3>
         <h3 class="category">
             {{ categories[expense.filter.value] }}
         </h3>
